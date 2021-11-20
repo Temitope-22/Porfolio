@@ -1,12 +1,12 @@
-select *
-from CovidDeaths
-WHERE continent is not null
-order by 3,4 desc
+SELECT *
+FROM CovidDeaths
+WHERE continent IS NOT NULL
+ORDER BY 3,4 DESC;
 
-select *
-from CovidVaccinations
-WHERE continent is not null
-order by 3,4 desc
+SELECT *
+FROM CovidVaccinations
+WHERE continent IS NOT NULL
+ORDER BY 3,4 DESC;
 
 --Usable Data
 
@@ -275,12 +275,7 @@ SELECT
 FROM CovidDeaths
 WHERE continent is null 
 -- removing categories I do not need
-and location != 'Upper middle income'
-and location != 'High income'
-and location != 'Lower middle income'
-and location != 'Low income'
--- Do not need World
-and location != 'World'
+and location not in ('Upper middle income', 'High income', 'Lower middle income', 'Low income', 'World', 'European Union', 'International')
 GROUP BY location
 
 CREATE VIEW 
