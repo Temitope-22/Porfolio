@@ -118,10 +118,7 @@ SELECT
 FROM CovidDeaths
 WHERE continent is null 
 -- removing categories I do not need
-and location != 'Upper middle income'
-and location != 'High income'
-and location != 'Lower middle income'
-and location != 'Low income'
+and location not in ('Upper middle income', 'High income', 'Lower middle income', 'Low income', 'World', 'European Union', 'International')
 GROUP BY location
 ORDER BY TotalDeathCount desc
 
